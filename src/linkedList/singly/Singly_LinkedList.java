@@ -38,6 +38,7 @@ public class Singly_LinkedList {
 
 
     public void printList(){
+        StringBuilder linkedList = new StringBuilder();
         Node<String> current = head;
         while(current != null){
             System.out.print(current.data);
@@ -45,6 +46,14 @@ public class Singly_LinkedList {
             current = current.next;
         }
         System.out.println("null");
+    }
+
+    public void removeFromEnd(){
+        Node<String> current = head;
+        while(current.next.next != null){
+            current = current.next;
+        }
+        current.next = null;
     }
 }
 class MainTest{
@@ -59,6 +68,8 @@ class MainTest{
         list.addToHead(new Node<>("Israel"));
         list.printList();
         list.addToMiddle(new Node<>("Teslim"), 2);
+        list.printList();
+        list.removeFromEnd();
         list.printList();
     }
 }
